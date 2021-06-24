@@ -87,7 +87,6 @@ function generatePassword() {
   }
 
   var password = '';
-  console.log(masterCharList);
   for (let i = 0; i < lengthPrompt - passwordConfirmList.length; i++) {
     password += masterCharList[Math.floor(Math.random() * masterCharList.length)];
   }
