@@ -67,7 +67,7 @@ When a user clicks on the “Generate Password”:
     a. Random Function - Math.floor(Math.random()
 
     - Math.random() – generates a number between 0 and 1.
-    - Math.floor() – rounds down to the nearest integer.
+    - CharAt() - since I'm using string variables that hold string.
     - When used together, we can generate a random integer.
 
     b. Putting all of this together, I was able to create a function for each list to select a random character each time it’s run.
@@ -95,9 +95,9 @@ When a user clicks on the “Generate Password”:
 
    - Use an if statement to check if user wants to include or not.
 
-     i. If include – run the random function and add to the master character list
+     i. If include – take the variable list and push to masterCharList.
 
-     ii. If include, make sure to reserve one randomly selected spot in the final password string for each confirmed character type. To achieve this, I created a passwordConfirmPage variable to house these characters. The length will reduced when the final loop occurs.
+     ii. If include, the logic will randomly select a character from the it's respective var list and save a spot in the final password string. To achieve this, I created a passwordConfirmList variable to house these characters.
 
      iii. If not – push false to tracker. Tracker is an array just so the check at the end is comparing against value 4 and not 20. For more information, see section below called “Learning Points”.
 
