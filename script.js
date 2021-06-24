@@ -79,7 +79,6 @@ function generatePassword() {
   } else {
     trackerConfirm.push(symbolsPrompt);
   }
-  console.log(passwordConfirmList);
 
   // CHECK | AT LEAST 1 TYPE ----------------------------------------
   if (trackerConfirm.length === 4) {
