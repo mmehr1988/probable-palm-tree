@@ -97,9 +97,11 @@ When a user clicks on the “Generate Password”:
 
      i. If include – run the random function and add to the master character list
 
-     ii. If not – push false to tracker. Tracker is an array just so the check at the end is comparing against value 4 and not 20. For more information, see section below called “Learning Points”.
+     ii. If include, make sure to reserve one randomly selected spot in the final password string for each confirmed character type. To achieve this, I created a passwordConfirmPage variable to house these characters. The length will reduced when the final loop occurs.
 
-4. Finally, after all the checks confirmed good, I created the loop to randomly selecting characters from the master list.
+     iii. If not – push false to tracker. Tracker is an array just so the check at the end is comparing against value 4 and not 20. For more information, see section below called “Learning Points”.
+
+4. Finally, after all the checks confirmed good, I created the loop to randomly selecting characters from the master list based on a length inputed less the saved characters from each confirmed character type.
 
 ## Other Key Learning Points: When to use Array.push() & when to use Addition Assignment +=
 

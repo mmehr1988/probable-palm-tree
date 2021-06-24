@@ -14,90 +14,82 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-// ----------------------------------------------------------------
-// PROMPT BOX + CONFIRM BOX + FUNCTION ----------------------------
-// ----------------------------------------------------------------
+// --------------------------------------------------------------------------------------
+// CHARACTER CAR LIST -------------------------------------------------------------------
+// --------------------------------------------------------------------------------------
+
+var numbersList = '0123456789';
+var lowersList = 'abcdefghijklmnopqrstuvwxyz';
+var uppersList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var symbolsList = '!"#$%&()*+,-./:;<=>?@[]^_`{|}~';
+
+// --------------------------------------------------------------------------------------
+// PROMPT BOX + CONFIRM BOX + FUNCTION --------------------------------------------------
+// --------------------------------------------------------------------------------------
 
 function generatePassword() {
   var masterCharList = '';
 
-  // TRACKER | AT LEAST 1 TYPE ---------------------------------
+  // After each confirmed character, 1 character from that list is reserved in the final password
+  var passwordConfirmList = '';
+
+  // TRACKER | AT LEAST 1 TYPE --------------------------------------
   var trackerConfirm = [];
 
-  // LENGTH PROMPT + CHECK FOR CHARACTER LENGTH ----------------------------------------
-  var length = prompt('Enter a number from 8 to 128 for password length.');
+  // LENGTH PROMPT + CHECK FOR CHARACTER LENGTH ---------------------
+  var lengthPrompt = prompt('Enter a number from 8 to 128 for password length.');
 
-  if (length < 8) {
+  if (lengthPrompt < 8) {
     alert('💔  Try Again! Too short. 💔 \r\n Password length needs to be between 8 & 128.');
     return '';
-  } else if (length > 128) {
+  } else if (lengthPrompt > 128) {
     alert('💔  Try Again! Too long. 💔 \r\n Password length needs to be between 8 & 128.');
     return '';
   }
 
-  // CONFIRM CHARACTER BOX + PUSH FOR ANY CANCELS TO TRACKER ---------------------------------
-  var numbers = confirm('Do you want to include numbers?');
-  if (numbers) {
-    masterCharList += getNumberChar;
+  // CONFIRM CHARACTER BOX + PUSH FOR ANY CANCELS TO TRACKER --------
+  var numbersPrompt = confirm('Do you want to include numbers?');
+  if (numbersPrompt) {
+    masterCharList += numbersList;
+    passwordConfirmList += numbersList.charAt(Math.random() * numbersList.length);
   } else {
-    trackerConfirm.push(numbers);
+    trackerConfirm.push(numbersPrompt);
   }
 
-  var lowercase = confirm('Do you want to include lowercase letters?');
-  if (lowercase) {
-    masterCharList += getLowerChar;
+  var lowercasePrompt = confirm('Do you want to include lowercase letters?');
+  if (lowercasePrompt) {
+    masterCharList += lowersList;
+    passwordConfirmList += lowersList.charAt(Math.random() * lowersList.length);
   } else {
-    trackerConfirm.push(lowercase);
+    trackerConfirm.push(lowercasePrompt);
   }
 
-  var uppercase = confirm('Do you want to include uppercase letters?');
-  if (uppercase) {
-    masterCharList += getUpperChar;
+  var uppercasePrompt = confirm('Do you want to include uppercase letters?');
+  if (uppercasePrompt) {
+    masterCharList += uppersList;
+    passwordConfirmList += uppersList.charAt(Math.random() * uppersList.length);
   } else {
-    trackerConfirm.push(uppercase);
+    trackerConfirm.push(uppercasePrompt);
   }
 
-  var symbols = confirm('Do you want to include symbols?');
-  if (symbols) {
-    masterCharList += getSymbolChar;
+  var symbolsPrompt = confirm('Do you want to include symbols?');
+  if (symbolsPrompt) {
+    masterCharList += symbolsList;
+    passwordConfirmList += symbolsList.charAt(Math.random() * symbolsList.length);
   } else {
-    trackerConfirm.push(symbols);
+    trackerConfirm.push(symbolsPrompt);
   }
 
-  // CHECK | AT LEAST 1 TYPE ---------------------------------------
+  // CHECK | AT LEAST 1 TYPE ----------------------------------------
   if (trackerConfirm.length === 4) {
     alert('💔  Try Again! 💔 \r\n At least 1 type needs to be selected.');
     return '';
   }
 
   var password = '';
-
-  for (let i = 0; i < length; i++) {
+  console.log(masterCharList);
+  for (let i = 0; i < lengthPrompt - passwordConfirmList.length; i++) {
     password += masterCharList[Math.floor(Math.random() * masterCharList.length)];
   }
-  return password;
-}
-
-// ----------------------------------------------------------------
-// RANDOM CHARACTER GENERATORS ------------------------------------
-// ----------------------------------------------------------------
-
-function getNumberChar() {
-  var numbersList = '0123456789';
-  return numbersList[Math.floor(Math.random() * numbersList.length)];
-}
-
-function getLowerChar() {
-  var lowersList = 'abcdefghijklmnopqrstuvwxyz';
-  return lowersList[Math.floor(Math.random() * lowersList.length)];
-}
-
-function getUpperChar() {
-  var uppersList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  return uppersList[Math.floor(Math.random() * uppersList.length)];
-}
-
-function getSymbolChar() {
-  var symbolsList = '!"#$%&()*+,-./:;<=>?@[]^_`{|}~';
-  return symbolsList[Math.floor(Math.random() * symbolsList.length)];
+  return password + passwordConfirmList;
 }
