@@ -99,6 +99,8 @@ When a user clicks on the “Generate Password”:
 
      ii. If include, the logic will randomly select a character from the it's respective var list and save a spot in the final password string. To achieve this, I created a passwordConfirmList variable to house these characters.
 
+     - `function randomoizer(i)`: To make the code a little more efficient and trying to reduce repetitive code, I created a ranomizer function.
+
      iii. If not – push false to tracker. Tracker is an array just so the check at the end is comparing against value 4 and not 20. For more information, see section below called “Learning Points”.
 
 4. Finally, after all the checks confirmed good, I created the loop to randomly selecting characters from the master list based on a length inputed less the saved characters from each confirmed character type.

@@ -51,7 +51,7 @@ function generatePassword() {
   var numbersPrompt = confirm('Do you want to include numbers?');
   if (numbersPrompt) {
     masterCharList += numbersList;
-    passwordConfirmList += numbersList.charAt(Math.random() * numbersList.length);
+    passwordConfirmList += randomizer(numbersList);
   } else {
     trackerConfirm.push(numbersPrompt);
   }
@@ -59,7 +59,7 @@ function generatePassword() {
   var lowercasePrompt = confirm('Do you want to include lowercase letters?');
   if (lowercasePrompt) {
     masterCharList += lowersList;
-    passwordConfirmList += lowersList.charAt(Math.random() * lowersList.length);
+    passwordConfirmList += randomizer(lowersList);
   } else {
     trackerConfirm.push(lowercasePrompt);
   }
@@ -67,7 +67,7 @@ function generatePassword() {
   var uppercasePrompt = confirm('Do you want to include uppercase letters?');
   if (uppercasePrompt) {
     masterCharList += uppersList;
-    passwordConfirmList += uppersList.charAt(Math.random() * uppersList.length);
+    passwordConfirmList += randomizer(uppersList);
   } else {
     trackerConfirm.push(uppercasePrompt);
   }
@@ -75,10 +75,11 @@ function generatePassword() {
   var symbolsPrompt = confirm('Do you want to include symbols?');
   if (symbolsPrompt) {
     masterCharList += symbolsList;
-    passwordConfirmList += symbolsList.charAt(Math.random() * symbolsList.length);
+    passwordConfirmList += randomizer(symbolsList);
   } else {
     trackerConfirm.push(symbolsPrompt);
   }
+  console.log(passwordConfirmList);
 
   // CHECK | AT LEAST 1 TYPE ----------------------------------------
   if (trackerConfirm.length === 4) {
@@ -91,4 +92,12 @@ function generatePassword() {
     password += masterCharList[Math.floor(Math.random() * masterCharList.length)];
   }
   return password + passwordConfirmList;
+}
+
+// --------------------------------------------------------------------------------------
+// RANDOMIZER ---------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------
+
+function randomizer(i) {
+  return `${i.charAt(Math.random() * i.length)}`;
 }
