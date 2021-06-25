@@ -77,7 +77,17 @@ When a user clicks on the “Generate Password”:
 1. When user is asked for the length of the password, they type a number.
    a. Prompt Box - It’s important to note that this value will return as a string, but JavaScript inherently will convert the string to a number for comparison purposes used in the check.
 
-   b. For the check, I wrote an if statement. If the user types a number less than 8 or greater than 128, an alert box will appear providing them with a message stating the rules. For the sake of having a little fun, I wrote two separate messages. Could have used the `||` to keep it clean, but I like the unique messages.
+   b. For the check, I created a while loop that would perform the check until user has correctly typed a number between 8 & 128. I also accounted for when the user presses the cancel button. In total, the while loop goes through 4 checks + 1 for when the user clicks on cancel.
+
+   - Check Criteria 'Cancel' = If cancel is pressed, exist loop and stop function.
+
+   - Check Criteria #1 = If empty, alert user them they forgot to enter a number and show prompt again for resubmission.
+
+   - Check Criteria #2 = If input is greater than 128 characters, alert user character length is too long and show prompt again for resubmission.
+
+   - Check Criteria #3 = If input is less than 8 characters, alert user character length is too short and show prompt again for resubmission.
+
+   - Check Criteria #4 = if input is not a number, alert user that length is not number and show prompt again for resubmission.
 
 2. Once the password meets the 8 to 128 character, user will be presented with 4 sequential confirm boxes answering whether they want to include lowercase letters, uppercase letters, numbers, and symbols.
 
