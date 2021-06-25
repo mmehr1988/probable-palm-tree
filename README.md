@@ -81,13 +81,13 @@ When a user clicks on the “Generate Password”:
 
    - Check Criteria 'Cancel' = If cancel is pressed, exist loop and stop function.
 
-   - Check Criteria #1 = If empty, alert user them they forgot to enter a number and show prompt again for resubmission.
+   - Check Criteria #1 = If empty, alert user that they forgot to enter a number and show prompt again for resubmission.
 
    - Check Criteria #2 = If input is greater than 128 characters, alert user character length is too long and show prompt again for resubmission.
 
    - Check Criteria #3 = If input is less than 8 characters, alert user character length is too short and show prompt again for resubmission.
 
-   - Check Criteria #4 = if input is not a number, alert user that length is not number and show prompt again for resubmission.
+   - Check Criteria #4 = If input is not a number, alert user that length is not number and show prompt again for resubmission.
 
 2. Once the password meets the 8 to 128 character, user will be presented with 4 sequential confirm boxes answering whether they want to include lowercase letters, uppercase letters, numbers, and symbols.
 
