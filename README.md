@@ -4,6 +4,8 @@ Assignment: Password-Generator
 
 Developer: Mehdi Mehrabani
 
+App Link: [Password-Generator](https://mmehr1988.github.io/probable-palm-tree/)
+
 For this week, we were tasked with coding the logic behind a randomly generated password. The significance of this task should not be understated since a password is usually the first line of defense against someone trying to get into a computer system.
 
 While I was researching the importance of a strong password I came across a website that displayed the most common passwords for the year 2020. One of the categories alongside the passwords, was the time it took hackers to crack the password. This to me was what stuck out the most.
