@@ -132,6 +132,6 @@ When a user clicks on the “Generate Password”:
 
 - Array | var trackerConfirm = array | [false,false,false,false] | 4 Elements
 
-## Image Of Final Assignment
+## GIF Of Final Assignment
 
-![alt text](./assets/probable-palm-tree.png)
+![alt text](./assets/gif/Password-Generator.gif)
